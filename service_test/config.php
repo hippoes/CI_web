@@ -13,8 +13,8 @@ define('DB_PREFIX' , 'ci_');
 
 # 全局URL路径
 // 主域名 保留最后的 /
-define('GLOBAL_URL'  , 'http://'.$_SERVER['HTTP_HOST'].'/other/wx/20180810wx/service_test/');
-define('GLOBAL_URL_SQL'  , 'http://'.$_SERVER['HTTP_HOST'].'/other/wx/20180810wx/service_test/boc/');
+define('GLOBAL_URL'  , 'http://'.$_SERVER['HTTP_HOST'].'/web_test/wx_test/service_test/');
+define('GLOBAL_URL_SQL'  , 'http://'.$_SERVER['HTTP_HOST'].'/web_test/wx_test/service_test/boc/');
 // 提供给后台做链接用的
 define('STATIC_URL'  , GLOBAL_URL.'/web/public/');
 define('UPLOAD_URL'  , GLOBAL_URL.'/web/upload/');
