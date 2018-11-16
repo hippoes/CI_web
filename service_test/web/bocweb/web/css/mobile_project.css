@@ -1,0 +1,93 @@
+@media (min-width: 1450px){
+	.pc .main .inputModel{
+		width: 85%;
+		margin: 0.16rem auto 0;
+	}
+	.pc .dietaryPlace .process .dietaryPic ul{
+		height:2.5rem;
+	}
+	.pc .project .mergePlace .pic{width:75%;}
+
+	/* servicePlace */
+	.servicePlace .picPlace .span01{
+	    top: 80%;left: 28%;
+	}
+	.servicePlace .picPlace .span02{
+	    top: 48%;left: 25%;
+	}
+	.servicePlace .picPlace .span03{
+	    top: 20%;left: 33.5%;
+	}
+	.servicePlace .picPlace .span04{
+	    top: 9%;left: 48%;
+	}
+	.servicePlace .picPlace .span05{
+	    top: 20%;left: 62.6%;
+	}
+	.servicePlace .picPlace .span06{
+	    top: 48%;left: 71%;
+	}
+	.servicePlace .picPlace .span07{
+	    top: 80%;left: 68.5%;
+	}
+	/* end servicePlace */
+
+}
+
+@media (max-width: 1450px){
+	.project .header{height:550px;line-height:550px;background-size: 1600px;}
+	.pc .main{width:92%;}
+	.pc .header_fixed{width:92%;}
+	.header_fixed .pc_home{width:7%;}
+}
+
+@media (max-width: 1330px){
+
+}
+@media (min-width: 1200px) and (max-width: 1330px){
+	.servicePlace .picPlace .span01{left: 22%;}
+	.servicePlace .picPlace .span02{left: 19%;}
+	.servicePlace .picPlace .span03{left: 29%;}
+	.servicePlace .picPlace .span04{left: 47.6%;}
+	.servicePlace .picPlace .span05{left: 66.6%;}
+	.servicePlace .picPlace .span06{left: 76.5%;}
+	.servicePlace .picPlace .span07{left: 73.5%;}
+}
+@media (max-width: 1200px){
+    .project .header{height:530px;line-height:530px;background-size: 1450px;}
+    .footer_logo img{width:1.8rem;}
+}
+@media (min-width: 1100px) and (max-width: 1200px){
+	.servicePlace .picPlace .span01{left: 18%;}
+	.servicePlace .picPlace .span02{left: 14%;}
+	.servicePlace .picPlace .span03{left: 26%;}
+	.servicePlace .picPlace .span04{left: 47.6%;}
+	.servicePlace .picPlace .span05{left: 68.6%;}
+	.servicePlace .picPlace .span06{left: 80.5%;}
+	.servicePlace .picPlace .span07{left: 77%;}
+}
+@media (max-width: 1024px){
+    .project .header{height:450px;line-height:450px;background-size: 1250px;}
+	.header_fixed .pc_home{line-height: 0.45rem;}
+    
+    /* servicePlace */
+	.servicePlace .picPlace{
+		background-size:650px;
+	}
+	.servicePlace .picPlace .serviceText{
+		font-size:0.13rem;line-height:0.16rem;
+	}
+	/* end servicePlace */
+
+}
+
+@media (min-width: 780px) and (max-width: 1000px){
+    .project .header{height:380px;line-height:380px;background-size: 1050px;}
+	.header_fixed .pc_logo img{width: 1.25rem;height:auto;}
+    
+}
+
+@media (max-width: 768px){
+	.project .header{height:380px;line-height:380px;background-size: 1050px;}
+	.header_fixed .pc_logo img{width: 1.25rem;height:auto;}
+}

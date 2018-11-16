@@ -1,0 +1,1 @@
+<?php include_once VIEWS.'/error/404.php'; ?>

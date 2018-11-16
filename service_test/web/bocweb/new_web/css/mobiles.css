@@ -1,0 +1,216 @@
+@media (max-width: 1450px){
+	.wel-banner .swiper-wrapper li {
+		height: 625px;
+	}
+	.wel-banner .swiper-wrapper img{
+		width: 1500px;
+		margin-left: -750px;
+	}
+	.flex-right{
+		right:1%;
+	}
+	.w1400 {
+	    width: 92%;
+	}
+	
+	/* nav */
+	.navdetail {width:92%;}
+	.navItemDetailFirst{height:625px;}
+	.navDetailDetail{height:625px;}
+	/* nav */
+
+	/* service */
+	.green-smart-list li .tit {margin: 20px auto 8px;}
+	.green-smart-list li h2 {font-size: 18px;line-height: 32px;}
+	.green-smart-list li p {width: 85%;margin: 4px auto 12px;font-size: 12px;line-height: 20px;min-height: 80px;}
+	/* end service*/
+
+	.header{background-position: 400px;}
+
+	/* new/info */
+	.news-info-box { width: 92%;margin: 0 auto;}
+	/* end new/info */
+}
+@media (max-width: 1200px){
+	.header{background-position: 330px;}
+
+	.wel-banner .swiper-wrapper li {
+		height: 515px;
+	}
+	.wel-banner .swiper-wrapper img{
+		width: 1200px;
+		margin-left: -600px;
+	}
+	/* nav */
+	.navItemDetailFirst{height:515px;}
+	.navDetailDetail{height:515px;}
+	.navItemDetailModel{padding-left:10px;}
+	.navDetailIcon{margin-right:10px;}
+	.navDetailArrow{padding-left:5px;}
+	.navItemDetailModel:hover{padding-left:15px;}
+	/* end nav */
+}
+@media (max-width: 1024px){
+	.wel-banner .swiper-wrapper li {
+		height: 400px;
+	}
+	.wel-banner .swiper-wrapper img{
+		width: 1050px;
+		margin-left: -525px;
+	}
+	/* nav */
+	.navItemDetailFirst{height:400px;}
+	.navDetailDetail{height:400px;}
+	.navItemDetailFirst{padding-top:0;}
+	.navItemDetailModel{height:11%;}
+	.navDetailTitleAll{padding-top:15px;}
+	.navDetailDetail{padding:0 20px;}
+	/* end nav */
+}
+
+@media (max-width: 992px){
+	.header{background-position: 230px;}
+	/* nav */
+	.navitem{font-size:12px;}
+	.navItemDetailModel{font-size:12px;}
+	.navItemDetailModel{padding:2px;}
+	.navDetailArrow{padding-left:0;}
+	.navItemDetailModel:hover{padding-left:10px;}
+	/* end nav */
+}
+@media (max-width: 830px){
+	.navDetailIcon{margin-right:2px;}
+}
+
+@media (max-width: 768px){
+	
+	
+	.wel-banner .swiper-wrapper li {
+		height: 350px;
+	}
+	.wel-banner .swiper-wrapper img{
+		width: 800px;
+		margin-left: -400px;
+	}
+	.wel-environment-list{
+		padding-top:20px;
+	}
+}
+@media (max-width: 767px){
+	body{
+		margin: 0 auto;min-width: 320px;max-width: 640px;
+	}
+	/* nav */
+	.navbox{display:none;}
+	/* end nav*/
+
+	/* mobilenav*/
+	.mobilenav{
+		display:block;
+	}
+	.w1400 {
+		width:92%;
+	}
+	.wel-banner ul {
+		margin-top:70px;
+	}
+	/* end mobilenav*/
+	
+	
+	.news_center_img img{
+		width:auto;margin:0 auto;
+	}
+	.news_center span{
+		text-align:center;
+	}
+	.header_nav{display:none;}
+	.flex-right{display:none;}
+	.quality{display:none;}
+	.index_news{display:none;}
+	.parent{display:none;}
+	.footer_ul{display: none;}
+	.left_box .second .photos{display:none;}
+    .mfooter{display: block;}
+	.booking{display:block;}
+	.prompt{display:block;}
+	.mhoneymoon{display:block}
+	.expert .parent_title{display:block;}
+	.server{display:block;}
+	.navpagination{display:block;}
+	.left_box .second .mphotos{display:block;}
+	
+	/* 专家医生 */
+	.padding_none{
+		width: 100%;margin: 20px 0 35px;box-shadow: 0 0 15px rgba(0, 0, 0, .18);border-radius: 18px;overflow: hidden;border: 1px solid #f6f6f6;position: relative;
+	}
+	.expert_nav{
+		height:65px;
+	}
+	.expert_nav ul{
+		width:350%;position:absolute;left:0;transition: background 0.3s;
+	}
+	.expert_nav ul li{
+		width:14.28%;height:65px;transition: background 0.3s;
+	}
+	
+	/* 导航模块 */
+	.left_box{
+		width:100%;
+	}
+	.left_box .first{
+		display:block;
+	}
+	.right_box{
+		width:100%;
+	}
+	
+	/* mobile video */
+	.server_box{margin-top:0;}
+}
+@media (max-width: 680px){
+	.news_center_img img{
+		width:100%;
+	}
+	.news_center span{
+		text-align:left;
+	}
+	
+	.wel-environment-list li.swiper-slide-active a{
+		width: 100%;top: 0;margin-left: -50%;
+	}
+	.wel-environment-list li.swiper-slide-next a {
+		width: 80%;left: 50%;top: 20px;margin-left: -40%;
+	}
+	.wel-environment-list li.swiper-slide-prev a{
+		width: 80%;left: 50%;top: 20px;
+	}
+	.wel-environment-list .swiper-button-next, .wel-environment-list .swiper-button-prev{
+		display:none;
+	}
+}
+@media (max-width: 600px){
+	.wel-banner .swiper-wrapper li {
+		height: 300px;
+	}
+	.wel-banner .swiper-wrapper img{
+		width: 600px;
+		margin-left: -300px;
+	}
+	.index_news{
+		margin-top:0px;
+	}
+	.quality_img b{
+		position:inherit;
+	}
+	
+	
+}
+@media (max-width: 480px){
+	.wel-banner .swiper-wrapper li {
+		height: 260px;
+	}
+	.wel-banner .swiper-wrapper img{
+		width: 480px;
+		margin-left: -240px;
+	}
+}

@@ -1,0 +1,627 @@
+@media (min-width: 1450px){
+	/* dalshabet */
+	.nutrition .fixed_modelbg .will_do{top:8%;}
+	.nutrition .fixed_modelbg .will_do h2{font-size:22px;}
+	.nutrition .fixed_modelbg .will_do .will_dolists p{font-size:18px;line-height:36px;}
+	.nutrition .about li .con_font{font-size:16px;line-height:30px;}
+	.nutrition .six_model .six_box .boxli .con{font-size:20px;}
+	.nutrition .expert_infos .con .expert-font{font-size:20px;}
+	.dalshabet .service-font p{font-size:18px;}
+	.nutrition .preg_listli .con .con_list span{font-size:16px;}
+	.nutrition .intro_after{font-size:18px;}
+	.nutrition .system .trends-list li p{font-size:20px;}
+	.nutrition .subtitle h2{font-size:22px;}
+
+	.dalshabet_html .text_fixed .text_border{width:65%;}
+	/* end dalshabet */
+}
+
+@media (max-width: 1450px){
+	/* dalshabet */
+	.nutrition .fixed_modelbg .rf_block{width:270px;}
+	.nutrition .fixed_modelbg{background-size:800px;}
+	/* end dalshabet */
+}
+@media (max-width: 1200px){
+	.careteam-top-list dd .expert-box .box-top h2{
+		margin-top:0;
+	}
+
+	/* service */
+	.professional-list{width:90%;}
+
+	.trends-list li p {font-size: 20px;line-height: 30px;margin-top: 12px;}
+	/* end service */
+	
+	/* about */
+	.w1125 {width: 92%;}
+	.ab-culture-top .box {width: 23vw;height: 23vw;margin-top: 6vw;}
+	.culturn-center {width: 34.5vw;height: 34.5vw;margin-left: 1.8vw;}
+	.ab-culture-top h2 {font-size: 20px;line-height: 30px;margin-top: 5vw;}
+	.ab-culture-top p {font-size: 15px;line-height: 25px;width: 75%;}
+	.ab-culture-top h2 {font-size: 20px;line-height: 30px;margin-top: 5vw;}
+	.culturn-center-list {height: 100px;}
+	.culturn-center-list .swiper-wrapper li {font-size: 15px;line-height: 25px;}
+	.other_us li{width:39%;margin-left:0;}
+	/* about */
+
+	/* dalshabet */
+	.nutrition .expert_infos .con{padding-top:10px;}
+	.nutrition .expert_infos .con i{margin:10px 0;}
+	.nutrition .expert_infos .con .expert-font{line-height:25px;padding: 12px 0 0;}
+	.nutrition .expert_infos .consultBtn{margin:20px auto;}
+	.nutrition .six_model .six_box{width:90%;}
+	.nutrition .fixed_modelbg {background-size: 700px;height: 700px;}
+	.nutrition .fixed_modelbg .rf_block .circle1{top:13%;}
+	.nutrition .fixed_modelbg .rf_block .circle2{top:30%;}
+	.nutrition .fixed_modelbg .rf_block .circle3{top:45%;}
+	/* end dalshabet */
+
+}
+@media (max-width: 1120px){
+	.project .header{display:none;}
+	.project .mobilenav{
+		display:block;
+		max-width:1120px;
+	}
+	.project .mnav_clear{width:100%;height:70px;}
+	.careteam-top-list dd .expert-box .box-top p{
+		background: url(../images/ser06.png) no-repeat left 8px;
+		margin-bottom:5px;
+	}
+	.careteam-top-list dd .b-font{
+		padding:0;
+	}
+
+	/* about */
+	.city-box li .font{line-height:25px;}
+	/* end about */
+
+	/* new/infos */
+	.news-info-box h2 {font-size: 18px;line-height: 28px;padding: 14px 0 15px;margin-bottom: 35px;}
+	.news-info-box h2 .time {font-size: 14px;padding-left: 22px;}
+	/* end new/infos */
+	
+	/* dalshabet */
+	.nutrition .problem{width:90%;}
+	.nutrition .problem .problem_listsli{width:25%;margin: 25px 0;}
+	.nutrition .fixed_modelbg {background-size: 600px;height: 600px;}
+	.nutrition .fixed_modelbg .rf_block .will_dolists{width:90px;height:90px;}
+	.nutrition .fixed_modelbg .rf_block .will_dolists h2{margin-top:14px;}
+	.nutrition .fixed_modelbg .rf_block{width:250px;}
+	.nutrition .fixed_modelbg .rf_block .circle2{top:27%;}
+	.nutrition .fixed_modelbg .rf_block .circle3{top:40%;}
+	/* end dalshabet */
+	
+}
+@media (max-width: 1024px){
+	/*banner*/
+	.project .banners{background-size:1400px;height:332px;}
+	/*end banner*/
+
+	/* expert */
+	.careteam .intro .pic{margin-top:10px;}
+	.careteam .intro h2{margin: 20px 0;}
+	.careteam .intro .font{line-height:25px;}
+	.careteam-top-list dd{width:46%;margin:0 2%;}
+	.careteam-top-list dd .expert-pic{width:30%;}
+	.careteam-top-list dd .expert-box{width:65%;margin-top: 10%;margin-left: 5%;}
+	.careteam-top-list dd .expert-box .box-top{border:0;}
+	.careteam-top-list dd .expert-box .box-top p{margin-bottom:10px;padding-right:0;}
+	.careteam-top-list dd .b-font{ width: 100%;border-top: 1px solid #b07033;margin-top: 20px;padding-top: 10px;}
+	.mobile_list .careteam-top-list dd .expert-box{margin-top: 5%;}
+	/* end expert */
+
+	/* rooms */
+	.service-font{width:92%;}
+	.rooms-list li .con{padding:10px 3% 10px;}
+	.rooms-list li h2{font-size:24px;line-height:40px;}
+	.rooms-list li i{margin:10px 0 10px;}
+	.rooms-list li .font{font-size:14px;line-height:28px;}
+	/* end rooms */
+
+	/* dietary */
+	.meal-list .pic{width:50%;}
+	.meal-list .con{width:50%;}
+	.month-service-list li p{font-size:12px;line-height:20px;}
+	/* end dietary */
+
+	/* service */
+	.professional-list li{padding:0;}
+	.green-smart-list li{width:48.8%;}
+	.green-smart-list li:nth-child(2n) {margin-right: 0;}
+	.green-smart-list li .pic{width:120%;margin-left:-60%;}
+
+	.prenatal-list li{width:32.3%;margin-left:1.5%;}
+	.prenatal-list h2{font-size: 18px;line-height: 30px;}
+	.prenatal-list .con{padding: 15px 5%;}
+
+	.mum_service-list li{margin-bottom: 20px;padding: 20px 3% 30px;}
+	.mum_service-list li h2{font-size: 20px;line-height: 32px;}
+	.mum_service-list li p {font-size: 12px;line-height: 24px;}
+	.mum_service-list .con{padding:20px 3%;}
+	
+	.trends-list li p {font-size: 18px;line-height: 28px;margin-top: 12px;}
+
+	.baby ul li{padding: 15px 2% 10px;}
+	.baby ul li h2 {padding-left: 52px;line-height: 45px;font-size: 22px;background-size: 45px !important;margin-bottom: 12px;}
+	.baby ul li p {line-height: 24px;font-size: 12px;background-position: left 7px;}
+
+	/* end service*/
+
+	/* about */
+	.w1125 {width: 100%;}
+	.miyue-font{width:92%;}
+	.ab-culture-top .box {width: 26vw;height: 26vw;margin-top: 4vw;}
+	.other_us{width:100%;}
+	.other_us .con h2{font-size:14px;}
+	.other_us .con span{font-size:14px;line-height:25px;}
+    /* end about */
+
+    /* new/info */
+	.news-info-box .info-bot {margin-top: 12px;padding-top: 15px;}
+	.news-info-box .info-bot p {font-size: 13px;line-height: 24px;height: 24px;}
+    /* end new/info */
+
+    /* dalshabet */
+	.dalshabet_html .text_fixed{top:22%;left:3%;}
+	.dalshabet_html .text_fixed p{font-size:18px;}
+	.dalshabet_html .text_fixed h2{font-size:35px;}
+	.dalshabet .service-font{width:100%;}
+	
+	.nutrition .problem{width:100%;}
+	.nutrition .problem .problem_listsli img{width:auto;height:60px;}
+	.nutrition .problem .problem_listsli .con{font-size:15px;}
+	.nutrition .expert_infos .pic{width:28%;}
+	.nutrition .expert_infos .con{width:72%;}
+	.nutrition .six_model .six_box{width:100%;}
+	.nutrition .fixed_modelbg {background-size: 500px;height: 500px;}
+	.nutrition .fixed_modelbg .rf_block .will_dolists{width:80px;height:80px;}
+	.nutrition .fixed_modelbg .rf_block{height:500px;}
+	.nutrition .fixed_modelbg .rf_block .circle1{top:11%;}
+	.nutrition .fixed_modelbg .rf_block .circle2{top:24%;}
+	.nutrition .fixed_modelbg .rf_block .circle3{top:35%;}
+	.nutrition .about li .con h2{font-size:18px;}
+    /* end dalshabet */
+	
+}
+@media (max-width: 1000px){
+	/* dietary */
+	.month-service-list li {width: 49.2%;margin-bottom: 10px;}
+	.month-service-list li:nth-child(3) {margin-left: 0;}
+	.month-service-list li .pic {height: 22.5vw;}
+	/* end dietary*/
+
+	/* dalshabet */
+	.nutrition .system .trends-list li p{font-size:16px;}
+	.nutrition .intro_after{width:95%;line-height: 25px;}
+	.nutrition .preg_list ul{width:100%;}
+	.nutrition .perium .preg_listli{width:45%;margin:2.5%;}
+	.nutrition .perium .preg_listli:first-child{width:45%;margin:2.5%;}
+	.nutrition .perium .preg_listli:nth-child(5){margin-left:28%;}
+
+	.nutrition .nursing .preg_listli{width:45%;margin:2.5%;}
+	.nutrition .movement .preg_listli{width:45%;margin:2.5%;}
+	.nutrition .expert_infos .con{padding-right:0;}
+	.nutrition .about li{width:45%;margin:2.5%;}
+	.nutrition .about li .con_font{font-size:15px;}
+	/* end dalshabet */
+}
+@media (max-width: 972px){
+	.careteam-top-list dd .expert-box{margin-left:2%;margin-top: 5%;}
+	/* dietary */
+	.meal-list .con h2{margin:0;}
+	/* end dietary */
+
+	/* about */
+	.city-box li h2{font-size:20px;line-height:30px;}
+	.news-list{width:92%;margin:0 auto;}
+	.news-box-list{width:92%;margin:25px auto;}
+	/* end about */
+
+	/* dalshabet */
+	.nutrition .fixed_modelbg .rf_block{width:200px;}
+	.nutrition .fixed_modelbg .rf_block .circle0{left:15%;}
+	.nutrition .fixed_modelbg .rf_block .circle1{left:35%;}
+	.nutrition .fixed_modelbg .rf_block .circle3{left:25%;}
+	/* end dalshabet */
+
+}
+@media (max-width: 882px){
+	.careteam .intro h2{
+		font-size:22px;margin: 15px 0;
+	}
+	.careteam .intro .font{
+		font-size:12px;
+	}
+	.careteam-top-list dd h2{
+		font-size:22px;line-height: 26px;
+	}
+	.careteam-top-list dd .expert-box .box-top p{
+		font-size:12px;
+	}
+	.careteam-top-list dd .b-font{
+		font-size:12px;
+	}
+
+	/* dietary*/
+	.meal-list .con p{line-height: 24px;background-position: left;}
+	/* end dietary */
+
+	/* service */
+	.professional-list{width:100%;}
+	/* end service */
+}
+@media (max-width: 850px){
+	/* service */
+	.prenatal-list .link{padding-left:7px;font-size:13px;line-height:28px;background-position: left 12px;}
+	/* end service */
+
+	/* about */
+	.city-box li .font{font-size:13px;line-height: 22px;}
+	.city-box li h2{font-size:18px;line-height:30px;}
+	/* end about */
+
+	/* dalshabet */
+	.dalshabet_html .text_fixed p{font-size:15px;}
+	.dalshabet_html .text_fixed h2{font-size:30px;}
+	.nutrition .expert_infos .pic{width:32%;}
+	.nutrition .expert_infos .con{width:68%;}
+	.nutrition .six_model .six_box .boxli img{width:80%;}
+    /* end dalshabet */
+}
+
+@media (max-width:767px){
+	.project .mobilenav{max-width: 640px;}
+	.careteam .intro .pic{width:100%;margin-top: 0;}
+	.careteam .intro .con{width:96%;}
+	.careteam-top-list dd{width:100%;margin-left:0;}
+	.careteam-top-list dd .b-font{width:68%;padding-top:5px;margin-top:0;}
+	#separated2{display:block;}
+	.project .banners{display:none;}
+	.project .m-banners{display:block;}
+	.careteam-top-list dd .expert-box{margin-top:2%;}
+
+
+	/* rooms */
+	.wel-title h2{font-size:22px;line-height:40px;}
+	.wel-title i{margin:5px auto 5px;}
+	.wel-title p{font-size:20px;line-height:40px;margin:0;}
+	.service-font{width:92%;}
+	.service-font p{font-size:13px;line-height:24px;margin:0;}
+	.rooms-list li .pic{width:100%;}
+	.rooms-list li .con{width:100%;margin-top:15px;padding:20px 5% 10px;}
+	.rooms-list li h2{font-size:28px;line-height:56px;}
+	.rooms-list li i{margin:15px 0 15px;}
+	/* end rooms */
+
+	/* dietary */
+	.meal-list .pic{width:100%;}
+	.meal-list .pic img{width:100%;}
+	.meal-list .con{width:100%;padding: 12px 4% 25px 4%;}
+	.meal-list .con p{font-size:15px;line-height:36px;}
+	.meal-list .pic, .nutritionbox .pic, .kitchen-list .pic {width: 100%;border-radius: 10px 0 0;}
+	.meal-list .con, .nutritionbox .con, .kitchen-list .con {width: 100%;}
+	.nutritionbox .con{font-size:13px;line-height:26px;padding:4%;}
+	.kitchen-list .con{padding: 12px 4% 25px;}
+	.catering-list li{width:100%;margin:15px 0;}
+	/* end dietary */
+
+	/* service */
+	.professional-list li{padding:20px;width:43%;margin:0 3.5%;}
+	.vice-title .vice-font{font-size:13px;line-height:24px;}
+	.vice-title h2{font-size:16px;line-height:20px;}
+	.green-smart-list li .pic{height:100%;width:auto;}
+
+	.prenatal-list li{width:100%;margin:20px 0;}
+	.prenatal-list h2{font-size:22px;line-height:30px;}
+	.prenatal-list .link{font-size:14px;line-height:30px;padding-left:9px;}
+
+	.mum_service-list .pic{width:100%;}
+	.mum_service-list .con{width:100%;}
+	.mum_service-list li h2{font-size:22px;}
+	.mum_service-list .con p{font-size:14px;line-height: 28px;background-position: left 12px;}
+
+	.trends-list li p {font-size: 13px;line-height: 26px;margin-top: 12px;}
+	
+	.baby ul li{width:100%;margin:20px 0;}
+	.baby ul li:nth-child(2) {width: 100%;margin:20px 0;}
+	.baby .baby_service{width:90%;margin:0 auto;}
+	.baby ul li .pic img{height:100%;width:auto;}
+
+	.party-pics .pics{width:90%;}
+	.party-pics .pics li{width:45%;margin:20px 2.5%;}
+	.party-pics .pics li:nth-child(3) {margin-left: 0%;}
+	.party-pics .pics li:nth-child(4) {margin:20px 2.5%;}
+	.party-pics .pics li:nth-child(5) {margin:20px 25%;}
+	.party-font{width:92%;font-size:13px;line-height:24px;margin:0 auto;text-indent:2em;color:#666;text-align: center;}
+	
+
+	/* end service */
+
+	/* about */
+	.city-box li{width:100%;}
+	.city-box li h2{font-size:22px;line-height:45px;}
+	.city-box li .font{font-size:14px;line-height:28px;}
+	.city-box  li:nth-child(2n) .pic{float:right;}
+	.city-box li.on .pic{float:left;}
+	.city-box li.cur .pic{float:right;}
+	.city-box  li:nth-child(2n) .bg{right: auto;left: 0;background: url(../img/wel38.png) no-repeat center;}
+	.city-box li.on .bg{background: url(../img/wel37.png) no-repeat center;right:0;left:auto;}
+	
+	.w1125 {width: 92%;}
+	.ab-culture-top .box {width: 33vw;height: 33vw;margin-top: 0;}
+	.culturn-center {width: 40vw;height: 40vw;margin:0 auto;margin-left: 22%;}
+
+	.miyue-font p{font-size:13px;line-height:24px;}
+	.miyue-font .pic img{width:100%;}
+
+	.miyue-list{height:auto;max-height:420px;height:400px;}
+	.miyue-list ul li{width:49%;margin:0.5% 0.5%;}
+
+	.map_us{width: 100%;height:300px;}
+	.other_us li{width:50%;}
+	.other_us li:last-child{width:50%;float:left;}
+	
+	.news-list .swiper-slide-next a{border-radius:0 35px 35px 0; overflow: hidden;}
+	/* end about */
+
+	/* dalshabet */
+	.dalshabet .pc_font{display:none;}
+	.dalshabet .mobile_font{display:block;}
+	.trends-list li{width:50.5%;margin-bottom: 25px;}
+	.nutrition .intro_after{display:none;}
+	.dalshabet .preg .service-font{display:none;}
+	.dalshabet .perium .service-font{display:none;}
+	.dalshabet .nursing .service-font{display:none;}
+	.dalshabet .recovery .service-font{display:none;}
+	.nutrition .six_modelbg{display:none;}
+	.nutrition .expert_infos{display:none;}
+	.nutrition .mobile_consult{display:block;}
+	.nutrition .dalshabet .sub-title p{font-size: 18px;color: #666;line-height: 30px;font-family: '微软雅黑';font-weight: normal;text-align: center;margin: 10px auto;}
+	.nutrition .movement .preg_listli{width: 48%;margin: 20px 2% 0 0;}
+	.nutrition .nursing .preg_listli{width: 48%;margin: 20px 2% 0 0;}
+	.nutrition .perium .preg_listli{width: 48%;margin: 20px 2% 0 0;}
+	.nutrition .preg_listli{width: 48%;margin: 20px 2% 0 0;}
+
+	.nutrition .recovery .recovery_pics .pics{width: 45%;margin: 2.5%;}
+	.nutrition .recovery .recovery_pics .pics:nth-child(3){display:none;}
+	.nutrition .dalshabet .mobile_sub p{color:#c87e37;}
+	.nutrition .problem .problem_listsli{width: 45%; margin: 25px 2.5%;}
+	.nutrition .six_model .six_box .boxli{width:30%;margin:20px 1.5%;}
+	.nutrition .six_model .six_box .boxli img{width:auto;}
+	.nutrition .aboutDalshabet{width:100%;background-color:#f7f7f7}
+	.nutrition .aboutDalshabet .dalshabet .sub-title p{font-size: 22px;color: #c87e37;}
+	.nutrition .about li .con{display:none;}
+	.nutrition .about li .con_font{display:none;}
+	.nutrition .about li .con_title{display:block;}
+	/* end dalshabet */
+}
+
+@media (max-width:640px){
+	/* mobile expert */
+	.mobile_list .careteam-top-list dd .b-font{width:100%;padding-top:15px;margin-top:20px;}
+	.mobile_list .careteam-top-list dd .expert-box{margin:7% 0 0 5%;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top h2{font-size:30px;line-height:35px;margin-bottom:15px;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top p{font-size:15px;}
+	.mobile_list .careteam-top-list dd .b-font{font-size:15px;}
+	/* end mobile expert */
+
+	/* about */
+	.ab-culture-top .box {width: 40vw;height: 40vw;margin-top: 0;}
+	.culturn-center {width: 50vw;height: 50vw;margin:0 auto;margin-left: 18%;}
+	/* end about */
+
+}
+
+@media (max-width:580px){
+	.careteam-top-list dd .expert-box .box-top p{line-height:12px;}
+	.careteam-top-list dd .b-font{line-height:20px;}
+	.careteam-top-list dd .expert-box .box-top{padding:0;}
+	.careteam-top-list dd .expert-box{margin-top:0;}
+
+	/* dietary */
+	.month-service-list li {width: 100%;margin-left: 0;margin-bottom: 10px;}
+	.month-service-list li .pic {height: 45.5vw;}
+	/* end dietary*/
+
+	/* service */
+	.trends-list li{width:50%;}
+	.trends-list li p{font-size:18px;line-height:30px;}
+	/* end service */
+
+	/* about */
+	.other_us{height:170px;}
+	.other_us li{width:100%;margin-top:10px;}
+	.other_us li:last-child{width:100%;float:left;}
+	.news-list .slides span{padding-left:30px;}
+	.news-list .slides a{font-size:14px;}
+	.news-list .slides{height:52px;}
+	.news-list .slides li{line-height:40px;}
+
+	.news-box-list li h2{font-size:15px;height:30px;}
+	
+	/* end about */
+}
+@media (max-width:520px){
+	.project .m-banners{background-size:520px;height:266px;}
+
+	/* about */
+	.miyue-list{height:330px;}
+	/* end about */
+}
+@media (max-width:500px){
+	.careteam-top-list dd .b-font{width:100%;padding-top:15px;margin-top:20px;}
+	.careteam-top-list dd .expert-box{margin-top:10%;}
+	.careteam-top-list dd .expert-box .box-top p{line-height:20px;}
+	.service-font{width:100%;}
+	.service-font p{font-size:12px;line-height:20px;}
+	/* rooms */
+	.rooms-list li h2{font-size:24px;line-height:50px;}
+	.rooms-list li i{margin:10px 0 10px;}
+	/* end rooms */
+
+	/* mobile expert */
+	.mobile_list .careteam-top-list{padding-left:0.5%;padding-right:0.5%;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top h2{font-size:26px;line-height:26px;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top p{font-size:14px;}
+	.mobile_list .careteam-top-list dd .b-font{font-size:14px;line-height:24px;}
+	/* end mobile expert */
+
+	/* service */
+	.green-smart-list li{width:100%;}
+	.green-smart-list li .pic{width:100%;margin-left:-50%;}
+
+	.prenatal-list h2{font-size:18px;}
+	.prenatal-list .link{font-size:13px;}
+
+	.mum_service-list .con p{padding-left:8px;}
+	.mum_service-list li{width:100%;margin-left:0;}
+	.mum_service-list li p{font-size:14px;}
+	/* end service */
+
+	/* about */
+	.city-box li h2{line-height:30px;}
+	.city-box li .font{font-size:13px;line-height:25px;}
+	.culturn-center {width: 55vw;height: 55vw;margin: 0 auto;margin-left: 12%;}
+	.ab-culture-top h2 {margin-top: 6vw;font-size: 18px;line-height: 28px;}
+	.ab-culture-top i {margin: 6px auto 8px;}
+	.ab-culture-top p {font-size: 13px;line-height: 22px;}
+	.culturn-center-list .swiper-wrapper li {font-size: 13px;line-height: 22px;}
+	/* end about */
+
+	/* new/infos */
+	
+	.news-info-box .info-bot .con {width: 100%;}
+	.news-info-box .info-bot .return {float: left;margin-top: 10px;width: 120px;height: 30px;line-height: 30px;}
+	/* infos */
+
+	/* dalshabet */
+	.nutrition .system{margin:0;}
+	.nutrition .preg{margin:0;}
+	.nutrition .dalshabet .sub-title h2{font-size:22px;}
+	.nutrition .dalshabet .sub-title p{font-size:16px;}
+	.nutrition .preg_listli{width:90%;margin:25px 5%;}
+	.nutrition .perium .preg_listli{width:90%;margin:25px 5%;}
+	.nutrition .perium .preg_listli:first-child{width:90%;margin:25px 5%;}
+	.nutrition .perium .preg_listli:nth-child(5){width:90%;margin:25px 5%;}
+	.nutrition .nursing .preg_listli{width:90%;margin:25px 5%;}
+	.nutrition .movement .preg_listli{width:90%;margin:25px 5%;}
+	/* end dalshabet */
+}
+@media (max-width:450px){
+	/* mobile expert */
+	.mobile_list .careteam-top-list dd .expert-pic{width:25%;}
+	.mobile_list .careteam-top-list dd .expert-box{width:73%;margin:5% 0 0 2%;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top h2{font-size:24px;line-height:24px;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top p{font-size:13px;line-height:20px;margin-bottom:5px;}
+	.mobile_list .careteam-top-list dd .b-font{font-size:13px;line-height:26px;margin-top:10px;padding-top:8px;}
+	/* end mobile expert */
+	#separated2{display:block;margin:30px 0;}
+	#separated{margin:35px 0;}
+
+	/* service */
+	.professional-list li{padding:0;margin:20px 5% 20px;width:40%;}
+	.mum_service-list .con{padding-top:10px;}
+	.mum_service-list li h2{font-size:20px;}
+	.mum_service-list .con p{font-size:12px;line-height:24px;}
+
+	.trends-list li p{font-size:16px;line-height:30px;}
+	/* end service */
+
+	/* about */
+	.city-box li .pic{height:240px;}
+	.city-box li .con{padding: 2vw 2% 0;}
+	.city-box li h2 {font-size: 18px;line-height: 28px;color:#333;transition: color 0.3s;}
+	.city-box li i {margin: 6px auto;}
+	.city-box li .font {font-size: 12px;line-height: 22px;}
+	.city-box li img {margin-left: -120px;}
+	.miyue-list{height:270px;}
+	/* end about */
+
+	/* new/info */
+	.news-info-box h2{font-size:16px;line-height:25px;}
+	.news-info-box h2 .time{line-height:50px;}
+	.news-info-box p{font-size:13px;}
+	.project .now a{font-size: 14px;margin-right: 10px;padding-left: 10px;}
+	/* new/info */
+	
+	/* dalshabet */
+	.nutrition .problem .problem_listsli .con{font-size:13px;}
+	.nutrition .six_model .six_box .boxli img{width:80%;}
+	.nutrition .about li .con_title h2{font-size:15px;}
+	/* end dalshabet */
+}
+@media (max-width:425px){
+	.project .m-banners{background-size:425px;height:215px;}
+	.careteam-top-list dd .expert-box{margin-top:7%;}
+
+	/* rooms */
+	.project .now{margin-bottom:10px;}
+	.wel-title h2{margin:0;}
+	.rooms-list li h2{font-size:20px;line-height:40px;}
+	/* rooms */
+
+	/* about */
+	.ab-culture .box-h {
+	    padding-bottom: 35px;
+	    position: relative;
+	    overflow: hidden;
+	}
+	/* end about */
+}
+@media (max-width:375px){
+	.careteam-top-list dd .expert-pic{width:22%;}
+	.careteam-top-list dd .expert-box{margin-top:1%;width:76%;}
+	.careteam-top-list dd h2{font-size:18px;line-height:18px;}
+	.careteam-top-list dd .expert-box .box-top p{line-height: 13px;background: url(../images/ser06.png) no-repeat left 5px;}
+	.careteam-top-list dd .b-font{padding-top:5px;margin-top:10px;}
+	/* dietary */
+	.nutritionbox .con{font-size:12px;line-height:24px;}
+	/* end dietary*/
+
+	/* service */
+	.professional-list .expert-title{font-size:14px;margin-top:20px;}
+	.mum_service-list .con p{font-size:13px;line-height:26px;width:100%;}
+	.baby ul li .pic img{width:100%;height:auto;}
+	.party-pics .pics li{width:100%;margin:0 auto;margin:10px 0;}
+	.party-pics .pics li:nth-child(4){margin-left:0;}
+	.party-pics .pics li:nth-child(5){margin-left:0;}
+	/* end service */
+
+	/* about */
+	.culturn-center{width:60vw;height:60vw;}
+	.ab-culture-top h2{margin:3vw;}
+	.ab-culture-top p {
+	    font-size: 13px;
+	    line-height: 16px;
+	}
+	.culturn-center-list .swiper-wrapper li{font-size:13px;line-height:15px;}
+	.news-list .swiper-slide-active a{border-radius:35px; overflow: hidden;}
+	.news-list .slides li:last-child a{border-radius:35px;}
+	/* end about */
+	
+	/* dalshabet */
+	.nutrition .system .trends-list li p{font-size:15px;}
+	.nutrition .recovery .recovery_pics .pics{width:90%;margin:20px 5%;}
+	.nutrition .about li{width:90%;margin:20px 5%;}
+	.nutrition .about li .con_title h2{font-size:18px;}
+	/* end dalshabet */
+
+}
+@media (max-width:360px){
+	/* mobile expert */
+	.mobile_list .careteam-top-list dd .expert-pic{width:22%;}
+	.mobile_list .careteam-top-list dd .expert-box{width:76%;margin:2% 0 0 2%;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top h2{font-size:22px;line-height:20px;margin-bottom:10px;}
+	.mobile_list .careteam-top-list dd .expert-box .box-top p{font-size:1.3rem;line-height:20px;margin-bottom: 2px;}
+	.mobile_list .careteam-top-list dd .b-font{font-size:1.3rem;line-height:20px;}
+	/* end mobile expert */
+
+	/* about */
+	.miyue-list{height:200px;}
+	/* end about */
+}
+@media (max-width:320px){
+	.project .m-banners{background-size:375px;height:190px;}
+}

@@ -1,0 +1,49 @@
+.input-text{width:75%;}
+.width-100{width:100%;}
+.full{width:25%;}
+.member_list , .member_lists{width:100%;margin:0 auto;}
+.member_list .userlist , .member_lists .other_userlist{
+	width:120px;float:left;border:1px solid #ccc;
+}
+.member_list .userlist:hover , .member_lists .other_userlist:hover{
+	background-color:#EDEDED;
+}
+.member_list .userlist .check_box , .member_lists .other_userlist .check_box{
+	width:10%;text-align:left;margin:10px 0 0 10px;
+}
+.member_list .userlist .close_box , .member_lists .other_userlist .close_box{
+	width:10%;float:right;text-align:right;margin:10px 10px 0 0;
+}
+.member_lists .other_userlist .close_box{
+	display:none;
+}
+.member_list .userlist .close_box i , .member_lists .other_userlist .close_box i{
+	position: absolute;display: block;width: 13px;height: 13px;font-size: 0;line-height: 0;cursor: pointer;background: url(../images/acrossTab-close.png) no-repeat 0 0;
+}
+.member_list .userlist .close_box i:hover , .member_lists .other_userlist .close_box i:hover{background-position:0 bottom}
+.member_list .userlist .cont , .member_lists .other_userlist .cont{
+	width:100%;margin:0 auto;float:right;text-align:center;margin-top:5px;
+}
+
+/* 添加其他用户 */
+.clear{
+	clear:both;
+}
+.userother{
+	display:none;
+}
+
+/* message -- show */
+.message_bg{background:#EDEBEE;}
+.message_box{padding:10px;width:350px;height:auto;margin:0 auto;border-radius:10px;border:1px solid #A2A2A2;background:#fff;}
+.message_box .message_title span{font-size:22px;margin:10px 0 0 0;}
+.message_box .message_time span{font-size:15px;color:#9C9C9C;}
+.message_box .con{display:block;margin-top:5px;padding-bottom: 12px;}
+.message_box .con p{margin-bottom: 0;}
+.message_box .con .con_title{font-size:16px;color:#173177;}
+.message_box .con .con_option .option_name{font-size:16px;color:#000;}
+.message_box .con .con_option .option_content{font-size:16px;color:#173177;}
+.message_box .con .con_remark{font-size:16px;color:#173177;}
+.message_box .message_detail{padding-top: 5px;padding-bottom: 5px;border-top: 1px solid #9C9C9C;}
+.message_box .message_detail span{font-size:15px;}
+.message_box .message_detail b{font-size:15px;float:right;margin-right:10px;}
