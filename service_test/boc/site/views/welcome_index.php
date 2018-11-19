@@ -9,8 +9,8 @@
 <!-- 内容部分 -->
 <div class="pd-20" style="padding-top:20px;">
   <p class="f-20 text-success">欢迎使用H-ui.admin <span class="f-14">v2.3</span>后台模版！</p>
-  <p>登录次数：<?php if(!empty($user['login_number'])){echo $user['login_number'];}?> </p>
-  <p>登录IP：<?php if(!empty($user['login_ip'])){echo $user['login_ip'];}?>  登录时间：<?php if(!empty($user['login_time'])){echo date('Y-m-d H:i:s',$user['login_time']);}?></p>
+  <p>登录次数：<?php if(!empty($user['login_number'])){echo $user['login_number'];}else{echo '0';}?> </p>
+  <p>登录IP：<?php if(!empty($user['login_ip'])){echo $user['login_ip'];}else{echo get_local_ip();}?>  登录时间：<?php if(!empty($user['login_time'])){echo date('Y-m-d H:i:s',$user['login_time']);}else{ echo date("Y-m-d H:i:s",time());}?></p>
   <table class="table table-border table-bordered table-bg">
     <thead>
       <tr>
@@ -36,38 +36,6 @@
         <td><?php if(!empty($count['userdel'])){echo $count['userdel'];}else{echo '0';}?></td>
         <td><?php if(!empty($count['manager'])){echo $count['manager'];}else{echo '0';}?></td>
       </tr>
-      <!--<tr class="text-c">
-        <td>今日</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr class="text-c">
-        <td>昨日</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr class="text-c">
-        <td>本周</td>
-        <td>2</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr class="text-c">
-        <td>本月</td>
-        <td>2</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>-->
     </tbody>
   </table>
   <table class="table table-border table-bordered table-bg mt-20">
@@ -138,12 +106,8 @@
       </tr>
       <tr>
         <td>服务器上次启动到现在已运行 </td>
-        <td><?php echo !empty(my_sys_uptime()) ? my_sys_uptime() : Uptime() ;?></td>
+        <td><?php $uptime = my_sys_uptime(); if(!empty($uptime)){echo my_sys_uptime();}else{echo Uptime();} ?></td>
       </tr>
-     <!-- <tr>
-        <td>逻辑驱动器 </td>
-        <td>C:\D:\</td>
-      </tr> -->
       <tr>
         <td>CPU 信息 </td>
         <td><?php if(!empty($sys_linux['cpu'])){echo $sys_linux['cpu']['num'].' '.$sys_linux['cpu']['num_text'].' '.$sys_linux['cpu']['model'];}else{ echo '该函数仅支持linux系统下';}?></td>

@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+error_reporting(0);
 /**
 * MY Controller
 */
@@ -51,19 +52,25 @@ class MY_Controller extends CI_Controller{
 			}
 		}else{
 			$wx_count = $this->wxelement->get_count_all();
-			if(empty($wx_count)){
-				// 获取 access_token 并保存
-				$id = $this->configs->last_id();
-				$cf = $this->configs->get_all(array('id'=>$id),'wx_appid,wx_appsecret');
-				$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$cf[0]['wx_appid']."&secret=".$cf[0]['wx_appsecret'];
-				$access_token = get_new_access_token($url);
-				$array['access_token'] = $access_token;
 
-				$array['addtime'] = time();
-				$array['overdue_time'] = $array['addtime']+7200;
-				
-				$this->db->set($array)-> insert('wxelement');
-				$res = $this->db->affected_rows();
+			if(empty($wx_count)){
+                $config = $this->configs->get_count_all();
+                if(empty($config)){
+                    $access_token = '';
+                }else{
+                    // 获取 access_token 并保存
+                    $id = $this->configs->last_id();
+                    $cf = $this->configs->get_all(array('id'=>$id),'wx_appid,wx_appsecret');
+                    $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$cf[0]['wx_appid']."&secret=".$cf[0]['wx_appsecret'];
+                    $access_token = get_new_access_token($url);
+                    $array['access_token'] = $access_token;
+
+                    $array['addtime'] = time();
+                    $array['overdue_time'] = $array['addtime']+7200;
+
+                    $this->db->set($array)-> insert('wxelement');
+                    $res = $this->db->affected_rows();
+                }
 			}else{
 				// 查询 access_token  
 				$res = $this->wxelement->get_all_limit("",'id,access_token,addtime,overdue_time',1,'id desc');

@@ -19,45 +19,81 @@ class Member extends MY_Controller {
 		$data['header']['tags'] = '月子会所,月子,月子中心,坐月子,月子中心加盟,月子会所加盟,Hibaby母婴健康,Hibaby,青岛凯贝姆,青岛Hibaby,凯贝姆,月子护理,月子服务,产后康复,月子餐,北京月子中心';
 		$data['header']['intro'] = 'Hibaby”是国内领先的母婴健康服务品牌，拥有临床经验丰富的妇、产、儿、中医科专家医生及资深护理团队。我们十数年专注于母婴健康领域，致力于为中国家庭提供高品质的孕期护理、月子期休养、新生儿护理、产后康复等一体化服务。';
 
-		$db_userlist = $this->member->get_list($this->limit);
-		if(empty($db_userlist)){
-			// 用户表为空时 获取用户列表 openid
-			$access_token = $this->access_token;
-			$userlist = get_userlist($access_token);
+        $list = $this->memberlist->get_count_all();
+        $member_list = $this->member->get_count_all();
 
-			foreach($userlist['data']['openid'] as $v){
-				// 添加用户列表数据
-				$res = $this->memberlist->create_data($v);
-				if(empty($res)){
-					// 添加失败 返回openid 
-					$error_arrlist[] = $v;
-				}
-			}
-			$openidlist = $this->memberlist->get_list($this->limit,'','','','openid');
-			foreach($openidlist as $v){
-				$userinfos = get_userinfo($access_token,$v['openid'],'zh_CN');
-				$userinfos['tagid_list'] = implode(',',$userinfos['tagid_list']);
-				// 添加用户详细信息数据
-				$result = $this->member->create_data($userinfos);
-				if(empty($result)){
-					// 添加失败 返回openid 
-					$error_arrinfos[] = $userinfos['openid'];
-				}
-			}
-			$db_userlist = $this->member->get_list($this->limit);
-		}else{
-			// 每两小时获取新用户列表并添加数据库
-			
-		}
+//        echo '<pre>';
+//        var_dump($member_list);
+//        echo '<pre>';
+        if(empty($list)){
+            $this->userlist();
+            $this->userinfo();
+//            $data['openidlist'] = 'getdata';
+        }elseif(empty($member_list)){
+            $this->userinfos();
+        }else{
+            $db_userlist = $this->member->get_list($list);
+            $data['userinfos'] = $db_userlist;
+        }
+        $this->load->view('member/member_list',$data);
 
-		$data['userinfos'] = $db_userlist;
-
-		// echo "<pre>";
-		// var_dump(date('Y-m-d H:i:s','1537522837'));
-		// echo "</pre>";
-		// show_404();
-		$this->load->view('member/member_list',$data);
 	}
+
+    // 第一次加载用户openid
+	public function userlist(){
+        $list = $this->memberlist->get_count_all();
+        if(empty($list)) {
+            $access_token = $this->access_token;
+            $userlist = get_userlist($access_token);
+
+            echo '用户列表加载中……<br/>';
+            foreach ($userlist['data']['openid'] as $k => $v) {
+                $res = $this->memberlist->find_one($v,'openid');
+
+                if($res){
+                    $this->userinfo();
+                    break;
+                }
+                if(empty($res)){
+                    // 添加用户列表数据
+                    $res = $this->memberlist->create_data($v);
+                    if (empty($res)) {
+                        // 添加失败 返回openid
+                        $error_arrlist[] = $v;
+                    } else {
+                        echo '用户列表加载,当前进度：' . ($k+1) . '/' . $userlist['count'] . '<br/>';
+                    }
+                }
+
+            }
+            echo '用户列表加载完毕，用户总数：' . $userlist['count'] . '<br/>';
+//            exit;
+        }
+    }
+    // 第一次加载用户详细信息
+	public function userinfos(){
+        $this->limit = $this->memberlist->get_count_all();
+        $db_userlist = $this->member->get_list($this->limit);
+        // 第一次加载用户详细信息
+        if(empty($db_userlist)){
+            $access_token = $this->access_token;
+            $openidlist = $this->memberlist->get_list($this->limit,'','','','openid');
+
+            echo '用户详细信息加载中……<br/>';
+            foreach($openidlist as $k=>$v){
+                $userinfos = get_userinfo($access_token,$v['openid'],'zh_CN');
+                $userinfos['tagid_list'] = implode(',',$userinfos['tagid_list']);
+                // 添加用户详细信息数据
+                $result = $this->member->create_data($userinfos);
+                if(empty($result)){
+                    // 添加失败 返回openid
+                    $error_arrinfos[] = $userinfos['openid'];
+                }
+                echo '用户详细信息加载,当前进度：'.$k.'/'.count($openidlist).'<br/>';
+            }
+            echo '用户详细信息加载完毕，用户总数：'.count($openidlist).'<br/>';
+        }
+    }
 
 	public function add(){
 		$data['header']['title'] = '添加用户';

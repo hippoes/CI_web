@@ -20,9 +20,7 @@ $(function(){
 
     $("body").click(function(){
         check_login();
-
     });
-
 })
 
 

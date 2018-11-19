@@ -63,7 +63,7 @@
 						<td class="td-manage">
 							<a style="text-decoration:none" onClick="message_send(this,'<?php echo $v['id']; ?>')" href="javascript:;" title="消息发送"><i class="Hui-iconfont">&#xe603;</i></a>
 
-							<a title="编辑" href="javascript:;" onclick="message_edit('消息编辑','<?php echo site_url('record/edit').'?id='.$v['id'];?>','<?php echo $v['id']; ?>','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+							<a title="编辑" href="javascript:;" onclick="message_edit('消息编辑','<?php echo site_url('record/edit').'?id='.$v['id'];?>','<?php echo $v['id']; ?>','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 							
 							<a title="删除" href="javascript:;" onclick="message_del(this,'<?php echo $v['id']; ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a> 
 						</td>

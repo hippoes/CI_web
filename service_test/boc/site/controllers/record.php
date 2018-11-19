@@ -7,45 +7,45 @@ class Record extends MY_Controller {
 	protected $rules = array(
 		"message_add" => array(
 			array(
-				'field'   => 'template_id', 
-				'label'   => '模板id', 
+				'field'   => 'template_id',
+				'label'   => '模板id',
 				'rules'   => 'trim|required'
 			),
 			array(
-				'field'   => 'first_data', 
-				'label'   => '消息标题', 
+				'field'   => 'first_data',
+				'label'   => '消息标题',
 				'rules'   => 'trim|required'
 			),
 			array(
-				'field'   => 'remark_data', 
-				'label'   => '备注信息', 
+				'field'   => 'remark_data',
+				'label'   => '备注信息',
 				'rules'   => 'trim'
 			),
 			array(
-				'field'   => 'sub_ids', 
-				'label'   => '选泽用户id', 
+				'field'   => 'sub_ids',
+				'label'   => '选泽用户id',
 				'rules'   => 'trim|required'
 			),
 			array(
-				'field'   => 'redirect_url', 
-				'label'   => '详情链接', 
+				'field'   => 'redirect_url',
+				'label'   => '详情链接',
 				'rules'   => 'trim'
 			)
 		),
 		'message_edit' => array(
 			array(
-				'field'   => 'first_data', 
-				'label'   => '消息标题', 
+				'field'   => 'first_data',
+				'label'   => '消息标题',
 				'rules'   => 'trim|required'
 			),
 			array(
-				'field'   => 'remark_data', 
-				'label'   => '备注信息', 
+				'field'   => 'remark_data',
+				'label'   => '备注信息',
 				'rules'   => 'trim'
 			),
 			array(
-				'field'   => 'sub_ids', 
-				'label'   => '选泽用户id', 
+				'field'   => 'sub_ids',
+				'label'   => '选泽用户id',
 				'rules'   => 'trim|required'
 			)
 		)
@@ -57,27 +57,37 @@ class Record extends MY_Controller {
 		$this->load->model('member_model','member');
 	}
 
+	public function index(){
+        echo "<pre>";
+        var_dump('aa');
+        echo "</pre>";
+    }
 	// 待发送消息列表
 	public function pending(){
+        echo "a";
 		$data['header']['title'] = '待发送消息列表';
 		$data['header']['tags'] = '月子会所,月子,月子中心,坐月子,月子中心加盟,月子会所加盟,Hibaby母婴健康,Hibaby,青岛凯贝姆,青岛Hibaby,凯贝姆,月子护理,月子服务,产后康复,月子餐,北京月子中心';
 		$data['header']['intro'] = 'Hibaby”是国内领先的母婴健康服务品牌，拥有临床经验丰富的妇、产、儿、中医科专家医生及资深护理团队。我们十数年专注于母婴健康领域，致力于为中国家庭提供高品质的孕期护理、月子期休养、新生儿护理、产后康复等一体化服务。';
 		$count = $this->message->get_count_all();
 		$res = $this->message->get_list($this->limit,'','',array('status'=>1),'id,template_id,sub_ids,sub_usernames,addtime');
 		$data['count'] = $count;
+        if(!empty($res)){
+            foreach($res as $k=>$v){
+                $template_title = $this->template->get_one(array('id'=>$v['template_id']),'title,content');
+                $res[$k]['template_title'] = $template_title['title'];
+                $res[$k]['template_content'] = $template_title['content'];
+                // $count_ids = empty(trim($v['sub_ids'],',')) ? '0' :count(explode(',',trim($v['sub_ids'],',')));
+                if(!empty($v['sub_ids']) || $v['sub_ids']== ','){
+                    $count_ids = '0';
+                }else{
+                    $count_ids = (explode(',',trim($v['sub_ids'],',')));
+                }
+                $res[$k]['count_ids'] = $count_ids;
 
-		foreach($res as $k=>$v){
-			$template_title = $this->template->get_one(array('id'=>$v['template_id']),'title,content');
-			$res[$k]['template_title'] = $template_title['title'];
-			$res[$k]['template_content'] = $template_title['content'];
-			$count_ids = empty(trim($v['sub_ids'],',')) ? '0' :count(explode(',',trim($v['sub_ids'],',')));
-			$res[$k]['count_ids'] = $count_ids;
-			
-		}
+            }
+        }
 		$data['message'] = $res;
-		// echo "<pre>";
-		// var_dump($res);
-		// echo "</pre>";
+
 		$this->load->view('record/pending',$data);
 	}
 
@@ -118,7 +128,7 @@ class Record extends MY_Controller {
 				$field[] = $v;
 			}
 		}
-		echo json_encode($field,JSON_UNESCAPED_UNICODE);
+        echo urldecode(json_encode($field));
 	}
 
 	// 保存待发送消息模板
@@ -139,7 +149,7 @@ class Record extends MY_Controller {
 	        	$last_name = $this->member->get_one(array('id'=>$ids[count($ids)-1],'status'=>'1'),'nickname');
 
 	        	$sub_usernames = '##'.$first_name['nickname'].' …… ##'.$last_name['nickname'];
-	        	
+
 	        	$datas['sub_usernames'] = $sub_usernames;
 	        	$content = '';
 	        	for($i=0;$i<8;$i++){
@@ -174,10 +184,10 @@ class Record extends MY_Controller {
 
 	        	$first_name = $this->member->get_one(array('id'=>$ids[0],'status'=>'1'),'nickname');
 	        	$last_name = $this->member->get_one(array('id'=>max($ids),'status'=>'1'),'nickname');
-				
+
 	        	$sub_usernames = '##'.$first_name['nickname'].' …… ##'.$last_name['nickname'];
 	        	$datas['sub_usernames'] = $sub_usernames;
-				
+
 				$content = '';
 	        	for($i=0;$i<8;$i++){
 	        		if(array_key_exists('keywords'.$i,$datas)){
@@ -192,7 +202,7 @@ class Record extends MY_Controller {
 				// echo "</pre>";
 				// exit;
 				$res = $this->message->update($datas,array('id'=>$datas['id']));
-				
+
 				if($res){
 		       		echo '<script>alert("修改成功")</script>';
 		      	}else{
@@ -215,8 +225,10 @@ class Record extends MY_Controller {
 			$template_id = $message['template_id'];
 			$template = $this->template->get_one(array('id'=>$template_id),'title,content');
 		}
-		// 获取所有用户列表
-		if(!empty(trim($message['sub_ids'],','))){
+
+        // 获取所有用户列表
+        $sub_ids = trim($message['sub_ids'],',');
+        if(!empty($sub_ids)){
 			$ids = explode(',',trim($message['sub_ids'],','));
 			$userlists = $this->member->get_all(array('status'=>1),'id,nickname,headimgurl');
 			foreach($userlists as $k=>$v){
@@ -236,10 +248,10 @@ class Record extends MY_Controller {
 		$message['template_title'] = $template['title'];
 		$field = explode('##',trim($template['content'],'##'));
 		$colors = explode('$$',trim($message['font_colors'],'$$'));
-		
+
 		$message['first_color'] = $colors['0'];
 		$message['remark_color'] = $colors[count($colors)-1];
-		
+
 		unset($colors['0']);
 		unset($colors[count($colors)-1]);
 		$colors = array_values($colors);
@@ -259,7 +271,7 @@ class Record extends MY_Controller {
 		// echo "</pre>";
 		$this->load->view('record/edit',$data);
 	}
-	
+
 	// 模板中添加用户
 	public function edit_adduser(){
 		$ids = $this->input->post('ids');
@@ -269,7 +281,7 @@ class Record extends MY_Controller {
 		$message = $this->message->get_one(array('id'=>$message_id,'status'=>1),'sub_ids,sub_usernames');
 		// 将新增用户id拼接
 		$data['sub_ids'] = trim($message['sub_ids'],',').','.$ids;
-		
+
 		// 获取最大 id 的用户名称
 		$last_id = max(explode(',',$data['sub_ids']));
 
@@ -308,7 +320,7 @@ class Record extends MY_Controller {
 			$last_id = max($sub_ids);
 			$last_name = $this->member->get_one(array('id'=>$last_id),'nickname');
 			$sub_name = explode('##',trim($message['sub_usernames'],'##'));
-			
+
 			$data['sub_usernames'] = '##'.$sub_name[0].'##'.$last_name['nickname'];
 			$data['sub_ids'] = implode(',',$sub_ids).',';
 
@@ -323,7 +335,7 @@ class Record extends MY_Controller {
 		}else{
 			echo "null";
 		}
-		
+
 	}
 
 	// 消息预览
@@ -346,7 +358,7 @@ class Record extends MY_Controller {
 		// var_dump($message);
 		// var_dump($template);
 		// echo "</pre>";
-		
+
 		$data['message'] = $message;
 		$data['template'] = $template;
 		$data['content'] = $content;

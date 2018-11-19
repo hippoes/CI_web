@@ -245,7 +245,11 @@ function Mupdate(){
 }
 
 $(function(){
-
+    // 加载用户详细信息
+    //var openidlist = '<?php //if(!empty($openidlist)){echo $openidlist;}?>//';
+    //if(openidlist !== ''){
+    //    layer_show('加载用户信息中……','<?php //echo site_url('member/userinfos');?>//','600','400');
+    //}
 })
 </script> 
 </body>
