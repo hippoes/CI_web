@@ -11,6 +11,7 @@ class Welcome extends MY_Controller {
         $this->load->model('template_model','template');
         $this->load->model('message_model','message');
         $this->load->model('member_model','member');
+        $this->load->model('Memberlist_model','memberlist');
         $this->load->model('userdel_model','userdel');
 
 	}
@@ -47,7 +48,7 @@ class Welcome extends MY_Controller {
         $count['message_sent'] = $c_message_sent;
 
         // 用户数量信息
-        $c_member_all = $this->member->get_count_all();
+        $c_member_all = $this->memberlist->get_count_all();
         $c_member_normal = $this->member->get_count_all(array('status'=>'1'));
         $count['member'] = $c_member_normal.'/'.$c_member_all;
 

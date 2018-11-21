@@ -56,36 +56,36 @@ class Record extends MY_Controller {
 		$this->load->model('message_model','message');
 		$this->load->model('member_model','member');
 	}
-
-	public function index(){
-        echo "<pre>";
-        var_dump('aa');
-        echo "</pre>";
-    }
 	// 待发送消息列表
 	public function pending(){
-        echo "a";
 		$data['header']['title'] = '待发送消息列表';
 		$data['header']['tags'] = '月子会所,月子,月子中心,坐月子,月子中心加盟,月子会所加盟,Hibaby母婴健康,Hibaby,青岛凯贝姆,青岛Hibaby,凯贝姆,月子护理,月子服务,产后康复,月子餐,北京月子中心';
 		$data['header']['intro'] = 'Hibaby”是国内领先的母婴健康服务品牌，拥有临床经验丰富的妇、产、儿、中医科专家医生及资深护理团队。我们十数年专注于母婴健康领域，致力于为中国家庭提供高品质的孕期护理、月子期休养、新生儿护理、产后康复等一体化服务。';
 		$count = $this->message->get_count_all();
-		$res = $this->message->get_list($this->limit,'','',array('status'=>1),'id,template_id,sub_ids,sub_usernames,addtime');
+		$res = $this->message->get_all(array('status'=>1),'id,template_id,sub_ids,sub_usernames,addtime');
 		$data['count'] = $count;
+
+		$member_count = $this->member->get_count_all();
+
         if(!empty($res)){
             foreach($res as $k=>$v){
                 $template_title = $this->template->get_one(array('id'=>$v['template_id']),'title,content');
                 $res[$k]['template_title'] = $template_title['title'];
                 $res[$k]['template_content'] = $template_title['content'];
                 // $count_ids = empty(trim($v['sub_ids'],',')) ? '0' :count(explode(',',trim($v['sub_ids'],',')));
-                if(!empty($v['sub_ids']) || $v['sub_ids']== ','){
-                    $count_ids = '0';
+
+                if(empty($v['sub_ids']) || $v['sub_ids']== ','){
+                    $count_ids = '0/'.$member_count;
                 }else{
-                    $count_ids = (explode(',',trim($v['sub_ids'],',')));
+                    $count_ids = count(explode(',',trim($v['sub_ids'],',')));
                 }
-                $res[$k]['count_ids'] = $count_ids;
+                $res[$k]['count_ids'] = $count_ids.'/'.$member_count;
 
             }
         }
+//        echo "<pre>";
+//        var_dump($res);
+//        echo "</pre>";
 		$data['message'] = $res;
 
 		$this->load->view('record/pending',$data);
@@ -134,6 +134,10 @@ class Record extends MY_Controller {
 	// 保存待发送消息模板
 	public function save_module(){
 		$post = $this->input->post();
+//        echo "<pre>";
+//        var_dump($post);
+//        echo "</pre>";
+//        exit;
 		if(!empty($post)){
 			$res = $this->form_validation->set_rules($this->rules['message_add']);
 			if ($this->form_validation->run() == FALSE)
@@ -163,15 +167,21 @@ class Record extends MY_Controller {
 				$res = $this->message->create_data($datas);
 				if($res){
 		       		echo '<script>alert("添加成功")</script>';
-		      	}else{
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
+                }else{
 		      		echo '<script>alert("添加失败")</script>';
-		       	}
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
+                }
 	        }
 		}
 	}
 	// 模板修改
 	public function edit_module(){
 		$post = $this->input->post();
+//        echo "<pre>";
+//        var_dump($post);
+//        echo "</pre>";
+//        exit;
 		if(!empty($post)){
 			$res = $this->form_validation->set_rules($this->rules['message_edit']);
 			if ($this->form_validation->run() == FALSE)
@@ -197,17 +207,20 @@ class Record extends MY_Controller {
 	        		}
 	        	}
 	        	$datas['content'] = $content;
-				// echo "<pre>";
-				// var_dump($datas);
-				// echo "</pre>";
-				// exit;
+	        	$data['edit_time'] = time();
+//				 echo "<pre>";
+//				 var_dump($datas);
+//				 echo "</pre>";
+//				 exit;
 				$res = $this->message->update($datas,array('id'=>$datas['id']));
 
 				if($res){
 		       		echo '<script>alert("修改成功")</script>';
-		      	}else{
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
+                }else{
 		      		echo '<script>alert("修改失败")</script>';
-		       	}
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
+                }
 	        }
 		}
 	}
@@ -253,8 +266,12 @@ class Record extends MY_Controller {
 		$message['remark_color'] = $colors[count($colors)-1];
 
 		unset($colors['0']);
+        $colors = array_values($colors);
 		unset($colors[count($colors)-1]);
 		$colors = array_values($colors);
+//        echo "<pre>";
+//        var_dump($colors);
+//        echo "</pre>";
 		foreach($field as $k=>$v){
 			$fields[$k]['name'] = $v;
 			$fields[$k]['value'] = $message['keywords'.$k];
@@ -265,10 +282,7 @@ class Record extends MY_Controller {
 		$data['message'] = $message;
 		$data['userinfos'] = $userinfos;
 		$data['userlists'] = $userlists;
-		// echo "<pre>";
-		// var_dump($colors);
-		// var_dump($message);
-		// echo "</pre>";
+
 		$this->load->view('record/edit',$data);
 	}
 
@@ -342,22 +356,32 @@ class Record extends MY_Controller {
 	public function show(){
 		$id = $this->input->get('id');
 		$template_id = $this->input->get('template_id');
-		$message = $this->message->get_one(array('id'=>$id,'status'=>1),'template_id,first_data,remark_data,sub_ids,redirect_url,content');
+		$message = $this->message->get_one(array('id'=>$id,'status'=>1),'template_id,first_data,remark_data,sub_ids,redirect_url,content,font_colors');
 		$template = $this->template->get_one(array('id'=>$template_id),'title,content');
 		$key = explode('##',trim($template['content'],'##'));
 		$value = explode('##',trim($message['content'],'##'));
+
+        $colors = explode('$$',trim($message['font_colors'],'$$'));
+        $data['first_color'] = $colors['0'];
+        $data['remark_color'] = $colors[count($colors)-1];
+        unset($colors['0']);
+        $colors = array_values($colors);
+        unset($colors[count($colors)-1]);
+        $colors = array_values($colors);
+
 		foreach($key as $k=>$v){
 			$content[$k]['keyword'] = $v;
 		}
 		foreach($value as $k=>$v){
-			$content[$k]['value'] = $v;
+            $content[$k]['value'] = $v;
+            $content[$k]['color'] = $colors[$k];
 		}
 
-		// echo "<pre>";
-		// var_dump($content);
-		// var_dump($message);
-		// var_dump($template);
-		// echo "</pre>";
+//		 echo "<pre>";
+//        var_dump($content);
+//		 var_dump($message);
+//		 var_dump($template);
+//		 echo "</pre>";
 
 		$data['message'] = $message;
 		$data['template'] = $template;

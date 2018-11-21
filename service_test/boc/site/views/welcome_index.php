@@ -47,10 +47,6 @@
     <tbody>
     <?php
         $sys_linux = my_sys_linux();
-
-        echo "<pre>";
-        var_dump($sys_linux);
-        echo "</pre>";
     ?>
       <tr>
         <th width="200">服务器计算机名</th>

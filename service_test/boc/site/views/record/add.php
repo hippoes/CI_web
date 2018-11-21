@@ -8,6 +8,9 @@
     echo static_file('css/spectrum.css');
     echo static_file('css/mycss.css');
 	?>
+    <style>
+        .member_list .cont .con p{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    </style>
 </head>
 
 <body>

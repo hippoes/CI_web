@@ -22,9 +22,6 @@ class Member extends MY_Controller {
         $list = $this->memberlist->get_count_all();
         $member_list = $this->member->get_count_all();
 
-//        echo '<pre>';
-//        var_dump($member_list);
-//        echo '<pre>';
         if(empty($list)){
             $this->userlist();
             $this->userinfo();
@@ -35,6 +32,7 @@ class Member extends MY_Controller {
             $db_userlist = $this->member->get_list($list);
             $data['userinfos'] = $db_userlist;
         }
+        $data['count'] = count($db_userlist);
         $this->load->view('member/member_list',$data);
 
 	}
@@ -95,14 +93,28 @@ class Member extends MY_Controller {
         }
     }
 
-	public function add(){
+	public function edit(){
 		$data['header']['title'] = '添加用户';
 		$data['header']['tags'] = '月子会所,月子,月子中心,坐月子,月子中心加盟,月子会所加盟,Hibaby母婴健康,Hibaby,青岛凯贝姆,青岛Hibaby,凯贝姆,月子护理,月子服务,产后康复,月子餐,北京月子中心';
 		$data['header']['intro'] = 'Hibaby”是国内领先的母婴健康服务品牌，拥有临床经验丰富的妇、产、儿、中医科专家医生及资深护理团队。我们十数年专注于母婴健康领域，致力于为中国家庭提供高品质的孕期护理、月子期休养、新生儿护理、产后康复等一体化服务。';
+        $id = $this->input->post('id');
+        $remark = trim($this->input->post('remark'));
 
+//        echo "<pre>";
+//        var_dump($id);
+//        var_dump($remark);
+//        echo "</pre>";
 
-		// show_404();
-		$this->load->view('member/member_add',$data);
+        if(is_numeric($id)){
+            $info = $this->member->update(array('remark'=>$remark),array('id'=>$id));
+            if($info){
+                echo 'TRUE';
+            }else{
+                echo 'FALSE';
+            }
+        }else{
+            echo 'FALSE';
+        }
 	}
 
 	public function del(){
@@ -111,10 +123,7 @@ class Member extends MY_Controller {
 		$data['header']['intro'] = 'Hibaby”是国内领先的母婴健康服务品牌，拥有临床经验丰富的妇、产、儿、中医科专家医生及资深护理团队。我们十数年专注于母婴健康领域，致力于为中国家庭提供高品质的孕期护理、月子期休养、新生儿护理、产后康复等一体化服务。';
 		$del_userlist = $this->userdel->get_list($this->limit);
 		$data['del_userlist'] = $del_userlist;
-		
-		// echo "<pre>";
-		// var_dump($del_userlist);
-		// echo "</pre>";
+        $data['count'] = count($del_userlist);
 
 		// show_404();
 		$this->load->view('member/member_del',$data);
@@ -140,6 +149,11 @@ class Member extends MY_Controller {
 		if(empty($userinfo)){
 			$userinfo = $this->userdel->get_one(array('id'=>$id));
 		}
+
+//        echo "<pre>";
+//        var_dump($userinfo);
+//        echo "</pre>";
+
 		$data['userinfo'] = $userinfo;
 		// show_404();
 		$this->load->view('member/member_show',$data);	

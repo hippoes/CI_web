@@ -17,13 +17,13 @@
 <div class="pd-20">
 
 	<!-- 分类搜索 -->
-	<div class="text-c"> 日期范围：
+	<!--<div class="text-c"> 日期范围：
 		<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:120px;">
 		-
 		<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" id="datemax" class="input-text Wdate" style="width:120px;">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、id、模板标题" id="" name="">
 		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜消息</button>
-	</div>
+	</div>-->
 
 	<!-- 表格操作 -->
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> 
@@ -31,7 +31,7 @@
 			<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
 			<a href="javascript:;" onclick="message_add('添加列表','<?php echo site_url('record/add');?>','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加列表</a>
 		</span> 
-		<span class="r">共有数据：<strong>88</strong> 条</span> 
+		<span class="r">共有数据：<strong><?php echo $count;?></strong> 条</span>
 	</div>
 
 	<!-- 表格数据 -->

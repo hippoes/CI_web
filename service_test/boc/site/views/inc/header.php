@@ -127,7 +127,7 @@
 					<li><a _href="<?php echo site_url('member/del'); ?>" href="javascript:;">删除的会员</a></li>
 					<!-- <li><a _href="member-level.html" href="javascript:;">等级管理</a></li> -->
 					<!-- <li><a _href="member-scoreoperation.html" href="javascript:;">积分管理</a></li> -->
-					<li><a _href="<?php echo site_url('member/browse'); ?>" href="javascript:void(0)">浏览记录</a></li>
+					<!--<li><a _href="<?php echo site_url('member/browse'); ?>" href="javascript:void(0)">浏览记录</a></li>-->
 					<!-- <li><a _href="member-record-download.html" href="javascript:void(0)">下载记录</a></li> -->
 					<!-- <li><a _href="member-record-share.html" href="javascript:void(0)">分享记录</a></li> -->
 				</ul>

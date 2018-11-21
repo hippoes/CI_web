@@ -8,6 +8,9 @@
     	echo static_file('css/spectrum.css');
 		echo static_file('css/mycss.css');
 	?>
+    <style>
+        .member_list .cont .con p{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    </style>
 </head>
 
 <body>
@@ -82,6 +85,7 @@
      <button type="submit" class="btn btn-success r radius" id="check_submit" style="margin-right:4px;">&nbsp;&nbsp;完成&nbsp;&nbsp;</button>
      <button type="button" class="btn btn-warning r radius" id="go_back" style="margin-right:4px;">&nbsp;&nbsp;上一步&nbsp;&nbsp;</button>
      <input type="hidden" name="sub_ids" id="check_ids" value="">
+     <input type="hidden" name="font_colors" id="font_color" value="">
      <div class="member_list">
         <div class="mt-20">
           <?php if(!empty($userinfos)) :?>
@@ -248,6 +252,25 @@ $(function(){
 	          layer.msg('请选择用户!',{icon:2,time:1500});
 	          return false;
 	        }
+
+            // 文字颜色
+            colors = '';
+            $('.row').find('.input-text').each(function(){
+                var val = $(this).val();
+                var name = $(this).attr('name');
+                if(name != 'redirect_url' && name != 'template_title'){
+                    var color = $(this).attr('color');
+                    if(color == undefined){
+                        var color = $(this).next().val();
+                    }
+
+                    colors = colors+'$$'+color;
+                }
+            })
+            // alert(colors);
+            if(colors){
+                $('#font_color').attr('value',colors);
+            }
 	    },
 		callback:function(form){
 
@@ -401,20 +424,27 @@ $(function(){
         	layer.msg('请先选择用户!',{icon:1,time:1500});
         }
     });
-    alert($('.full').length);
-	$('.full').each(function(){
+
+    // 颜色填充
+    var len = $('.full').length;
+    for(var i=0;i<len;i++){
+        var color = $('.full').eq(i).attr('value');
+        check_color($('.full').eq(i),color);
+    }
+
+	/*$('.full').each(function(){
 		// var color = $(this).attr('value');
 		// alert(color);
 		check_color('.full');
 		updateBorders(color);
-	});
+	});*/
 });
 
 
-function check_color($dom){
-  $($dom).spectrum({
+function check_color($dom,color){
+  $dom.spectrum({
 　　allowEmpty:true,
-　　color: '#000',
+　　color: color,
 　　showInput: true,
 　　containerClassName: "full-spectrum",
 　　showInitial: true,

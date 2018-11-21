@@ -17,13 +17,13 @@
 <div class="pd-20">
 
 	<!-- 分类搜索 -->
-	<div class="text-c"> 日期范围：
+	<!--<div class="text-c"> 日期范围：
 		<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:120px;">
 		-
 		<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" id="datemax" class="input-text Wdate" style="width:120px;">
 		<input type="text" class="input-text" style="width:250px" placeholder="输入会员名称、电话、邮箱" id="" name="">
 		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-	</div>
+	</div>-->
 
 	<!-- 表格操作 -->
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> 
@@ -31,7 +31,7 @@
 			<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
 			<a href="javascript:;" onclick="Mupdate()" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 最新数据 </a>
 		</span> 
-		<span class="r">共有数据：<strong>88</strong> 条</span> 
+		<span class="r">共有数据：<strong><?php echo $count;?></strong> 条</span>
 	</div>
 
 	<!-- 表格数据 -->
@@ -66,8 +66,7 @@
 						<td class="td-status"><?php if($v['status']==1){echo '<span class="label label-success radius">已启用</span>';}elseif($v['status']==2){echo '<span class="label label-default radius">已禁用</span>';}?></td>
 						<td class="td-manage">							<a style="text-decoration:none" onClick="<?php if($v['status']==1){echo "member_stop(this,'".$v['id']."')";}elseif($v['status']==2){echo "member_start(this,'".$v['id']."')";}?>" href="javascript:;" title="停用"><i class="Hui-iconfont"><?php if($v['status']==1){echo "&#xe631;";}elseif($v['status']==2){echo "&#xe615;";}?></i></a> 
 
-							<a title="编辑" href="javascript:;" onclick="member_edit('编辑','<?php echo site_url('member/add');?>','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-							<!-- <a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password.html','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a>  -->
+							<a title="编辑" href="javascript:;" onclick="member_edit('编辑','<?php echo site_url('member/show').'?id='.$v['id'];?>','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 							<a title="删除" href="javascript:;" onclick="member_del(this,'<?php echo $v['id']; ?>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 						</td>
 					</tr>
@@ -103,7 +102,8 @@ $(function(){
 			$(this).removeClass('selected');
 		}
 		else {
-			table.$('tr.selected').removeClass('selected');
+			// table.$('tr.selected').removeClass('selected');
+			$('tr.selected').removeClass('selected');
 			$(this).addClass('selected');
 		}
 	});

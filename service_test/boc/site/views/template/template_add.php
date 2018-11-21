@@ -71,22 +71,22 @@ $(function(){
 		increaseArea: '20%'
 	});
 	
-	// $("#form-member-add").Validform({
-	// 	tiptype:2,
-	// 	callback:function(form){
-	// 		form[0].submit();
-	// 		var index = parent.layer.getFrameIndex(window.name);
-	// 		parent.$('.btn-refresh').click();
-	// 		parent.layer.close(index);
-	// 	}
-	// });
-
 	$("#form-member-add").Validform({
 		tiptype:2,
-		callback:function(form){
-			// alert(form);
+		callback:function(data){
+            // alert(data);
+            // console.log(data);
+            // for(key in data){
+            //     console.log(key,data[key]);
+            // }
+
+			// form[0].submit();
+			// var index = parent.layer.getFrameIndex(window.name);
+			// parent.$('.btn-refresh').click();
+			// parent.layer.close(index);
 		}
 	});
+
 });
 </script>
 </body>

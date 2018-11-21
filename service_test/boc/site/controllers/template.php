@@ -44,9 +44,12 @@ class Template extends MY_Controller {
 		// $this->template->get_list();
 
 		$count = $this->template->get_count_all();
-		$res = $this->template->get_list($this->limit,'','','','id,title,template_id,industry,content,sort_id,status,addtime');
+		$res = $this->template->get_all('','id,title,template_id,industry,content,sort_id,status,addtime');
 		$data['template_list'] = $res;
 		$data['count'] = $count;
+//        echo '<pre>';
+//        var_dump($res);
+//        echo '</pre>';
 
 		$this->load->view('template/template_list',$data);
 	}
@@ -95,9 +98,11 @@ class Template extends MY_Controller {
 				}
 		        $res = $this->template->update($datas,array('id'=>$datas['id']));
 		       	if($res){
-		       		echo '<script>alert("修改成功")</script>';
+                    echo '<script>alert("修改成功")</script>';
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
 		      	}else{
-		      		echo '<script>alert("修改失败")</script>';
+                    echo '<script>alert("修改失败")</script>';
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
 		       	}
 	        }
 
@@ -142,9 +147,11 @@ class Template extends MY_Controller {
 				}
 		        $res = $this->template->create_data($datas);
 		       	if($res){
-		       		echo '<script>alert("添加成功")</script>';
+		       	    echo '<script>alert("添加成功")</script>';
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
 		      	}else{
-		      		echo '<script>alert("添加失败")</script>';
+		       	    echo '<script>alert("添加失败")</script>';
+                    echo "<script>var index = parent.layer.getFrameIndex(window.name);parent.$('.btn-refresh').click();parent.layer.close(index);</script>";
 		       	}
 	        }
 			
