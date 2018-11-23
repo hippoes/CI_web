@@ -10,6 +10,7 @@
 	?>
     <style>
         .member_list .cont .con p{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+        .other_userlist .cont .con p{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
     </style>
 </head>
 

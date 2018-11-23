@@ -61,7 +61,7 @@ class Record extends MY_Controller {
 		$data['header']['title'] = '待发送消息列表';
 		$data['header']['tags'] = '月子会所,月子,月子中心,坐月子,月子中心加盟,月子会所加盟,Hibaby母婴健康,Hibaby,青岛凯贝姆,青岛Hibaby,凯贝姆,月子护理,月子服务,产后康复,月子餐,北京月子中心';
 		$data['header']['intro'] = 'Hibaby”是国内领先的母婴健康服务品牌，拥有临床经验丰富的妇、产、儿、中医科专家医生及资深护理团队。我们十数年专注于母婴健康领域，致力于为中国家庭提供高品质的孕期护理、月子期休养、新生儿护理、产后康复等一体化服务。';
-		$count = $this->message->get_count_all();
+		$count = $this->message->get_count_all(array('status'=>1));
 		$res = $this->message->get_all(array('status'=>1),'id,template_id,sub_ids,sub_usernames,addtime');
 		$data['count'] = $count;
 
@@ -356,7 +356,7 @@ class Record extends MY_Controller {
 	public function show(){
 		$id = $this->input->get('id');
 		$template_id = $this->input->get('template_id');
-		$message = $this->message->get_one(array('id'=>$id,'status'=>1),'template_id,first_data,remark_data,sub_ids,redirect_url,content,font_colors');
+		$message = $this->message->get_one(array('id'=>$id),'template_id,first_data,remark_data,sub_ids,redirect_url,content,font_colors');
 		$template = $this->template->get_one(array('id'=>$template_id),'title,content');
 		$key = explode('##',trim($template['content'],'##'));
 		$value = explode('##',trim($message['content'],'##'));
@@ -377,11 +377,6 @@ class Record extends MY_Controller {
             $content[$k]['color'] = $colors[$k];
 		}
 
-//		 echo "<pre>";
-//        var_dump($content);
-//		 var_dump($message);
-//		 var_dump($template);
-//		 echo "</pre>";
 
 		$data['message'] = $message;
 		$data['template'] = $template;
@@ -389,13 +384,100 @@ class Record extends MY_Controller {
 		$this->load->view('record/show',$data);
 	}
 
-	// 删除待发送消息
+	public function message_send(){
+	    $id = $this->input->post('id');
+        $access_token = $this->access_token;
+
+        $message = $this->message->get_one(array('id'=>$id));
+        $sub_ids = $message['sub_ids'];
+        $template_id = $message['template_id'];
+
+        $template = $this->template->get_one(array('id'=>$template_id),'title,template_id,content');
+        $value = explode('##',trim($message['content'],'##'));
+        $colors = explode('$$',trim($message['font_colors'],'$$'));
+        $data['first']['color'] = $colors['0'];
+        $data['remark']['color'] = $colors[count($colors)-1];
+        unset($colors['0']);
+        $colors = array_values($colors);
+        unset($colors[count($colors)-1]);
+        $colors = array_values($colors);
+
+        $con = '';
+        foreach($value as $k=>$v){
+            $con .= '"keyword'.($k+1).'"'.':{"value":"'.$v.'","color":"'.$colors[$k].'"},';
+        }
+
+        $data['template_id'] = $template['template_id'];
+        $data['url'] = $message['redirect_url'];
+        $data['first']['value'] = $message['first_data'];
+        $data['remark']['value'] = $message['remark_data'];
+
+
+        $ids = explode(',',trim($sub_ids,','));
+
+        foreach($ids as $k=>$v){
+            $userinfo = $this->member->get_one(array('id'=>$v),'openid,nickname');
+
+            //消息内容
+            $message = '{
+               "touser":"'.$userinfo['openid'].'",
+               "template_id":"'.$data["template_id"].'",
+               "url":"'.$data["url"].'",  
+               "miniprogram":{
+                   "appid":"",
+                   "pagepath":""
+               },          
+               "data":{
+                   "first": {
+                       "value":"'.$data["first"]["value"].'",
+                       "color":"'.$data["first"]["color"].'"
+                   },
+                   '.$con.'
+                   "remark":{
+                       "value":"'.$data["remark"]["value"].'",
+                       "color":"'.$data["remark"]["color"].'"
+                   }
+               }
+            }';
+
+            $result = send_messages($access_token,$message);
+
+
+            if($result !== 'true'){
+                $fail = 'true';
+                $send_error .= 'Openid: '.$userinfo['openid'].' ,Case: '.$result.'##';
+                $fail_ids .= $v.',';
+            }
+
+            if($k == count($ids)-1){
+                $send_ok = 'true';
+            }
+        }
+
+        //存在失败用户时
+        if($fail){
+            $fails['fail_ids'] = $fail_ids;
+            $fails['fail_reason'] = $send_error;
+
+            $this->message->update($fails,array('id'=>$id));
+        }
+
+        //发送完成时
+        if($send_ok){
+            $res = $this->message->update(array('status'=>'2','send_time'=>time()),array('id'=>$id));
+            if($res){
+                echo 'true';
+            }
+        }
+    }
+
+	// 删除消息
 	public function pendmessage_del(){
 		$id = $this->input->post('id');
 		if(!empty($id)){
 			$array = explode(',',$id);
 			// 删除一个或者一组id
-			$res = $this->message->del($array,array('status'=>1));
+			$res = $this->message->del($array);
 			if($res){
 				echo true;
 				exit;
@@ -411,6 +493,36 @@ class Record extends MY_Controller {
 		$data['header']['title'] = '已发送消息列表';
 		$data['header']['tags'] = '月子会所,月子,月子中心,坐月子,月子中心加盟,月子会所加盟,Hibaby母婴健康,Hibaby,青岛凯贝姆,青岛Hibaby,凯贝姆,月子护理,月子服务,产后康复,月子餐,北京月子中心';
 		$data['header']['intro'] = 'Hibaby”是国内领先的母婴健康服务品牌，拥有临床经验丰富的妇、产、儿、中医科专家医生及资深护理团队。我们十数年专注于母婴健康领域，致力于为中国家庭提供高品质的孕期护理、月子期休养、新生儿护理、产后康复等一体化服务。';
+
+        $count = $this->message->get_count_all(array('status'=>2));
+        $res = $this->message->get_all(array('status'=>2),'id,template_id,sub_ids,sub_usernames,send_time');
+        $data['count'] = $count;
+
+        $member_count = $this->member->get_count_all();
+
+        if(!empty($res)){
+            foreach($res as $k=>$v){
+                $template_title = $this->template->get_one(array('id'=>$v['template_id']),'title,content');
+                $res[$k]['template_title'] = $template_title['title'];
+                $res[$k]['template_content'] = $template_title['content'];
+                // $count_ids = empty(trim($v['sub_ids'],',')) ? '0' :count(explode(',',trim($v['sub_ids'],',')));
+
+                if(empty($v['sub_ids']) || $v['sub_ids']== ','){
+                    $count_ids = '0/'.$member_count;
+                }else{
+                    $count_ids = count(explode(',',trim($v['sub_ids'],',')));
+                }
+                $res[$k]['count_ids'] = $count_ids.'/'.$member_count;
+
+            }
+
+
+//            echo "<pre>";
+//            var_dump($res);
+//            echo "</pre>";
+        }
+
+        $data['message'] = $res;
 
 		$this->load->view('record/history',$data);
 	}

@@ -116,10 +116,34 @@ function message_show(title,url,id,w,h){
 /*消息-发送*/
 function message_send(obj,id){
 	layer.confirm('确认要发送吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
+        //此处请求后台程序，下方是成功后的前台处理……
+        var suburl = "<?php echo site_url('record/message_send');?>";
+        $.ajax({
+            type: 'POST',
+            url: suburl,
+            data: "<?php echo $this->security->get_csrf_token_name().'='.$this->security->get_csrf_hash();?>&id="+id,
+            success:function(msg){
+                // alert(msg);
+
+                if(msg == 'true'){
+                    $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="已发送"><i class="Hui-iconfont">&#xe6e1;</i></a>');
+                    $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发送</span>');
+                    $(obj).remove();
+                    layer.msg('已发送!',{icon: 1,time:1000});
+                }else {
+                    // layer.msg('发送失败!',{icon: 5,time:1000});
+                }
+            }
+        });
+
+
+
+
+		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="已发送"><i class="Hui-iconfont">&#xe6e1;</i></a>');
+		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发送</span>');
 		$(obj).remove();
-		layer.msg('已停用!',{icon: 5,time:1000});
+        layer.msg('已发送!',{icon: 1,time:1000});
+        // layer.msg('发送失败!',{icon: 5,time:1000});
 	});
 }
 

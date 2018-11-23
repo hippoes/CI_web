@@ -677,3 +677,26 @@ if(!function_exists('my_sys_linux')){
     }
 }
 
+
+if (!function_exists('send_messages')) {
+    function send_messages($access_token,$data){
+        $userlists_url = 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token='.$access_token;
+
+        $outline = https_request($userlists_url,$data);
+        $result = json_decode($outline,true);
+
+        if($result['errmsg'] == 'ok'){
+            return 'true';
+        }else{
+            return json_encode($result);
+        }
+
+
+
+
+
+//        return $userlists;
+    }
+}
+
+
